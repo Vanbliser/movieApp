@@ -12,31 +12,40 @@ class DetailScreeen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        const DetailScreenBanner(),
-        Padding(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [StarAndRatingWidget(), AddToListWidget()],
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 8.0),
-                child: BigTextWidget(data: 'Angel has fallen'),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 8.0),
-                child: SmallTextWidget(
-                    data:
-                        'nuenoiuwehnphwhmpihpfiwetmeitpseiurtimpuvwrisve,rmveri hvui hrpmvuhepruh puvehrnpv uhergijv ndfmn gh u ng r r h ruvhruhur hh rg j bj8g jv b fjif vjivjv ji vji viv iviv nifv ij nsutpwyep wew egobfwe wboe gw8toe t7obw378et rw78te ot8w.'),
-              )
-            ],
-          ),
-        )
-      ],
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          const DetailScreenBanner(),
+          Padding(
+            padding: const EdgeInsets.only(top: 0, left: 15, right: 15),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [StarAndRatingWidget(), AddToListWidget()],
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 25),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: BigTextWidget(data: 'Angel has fallen'),
+                  ),
+                ),
+                const Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      'nuenoiuwehnphwhmpihpfiwetmeitpseiurtimpuvwrisve,rmveri hvui hrpmvuhepruh puvehrnpv uhergijv ndfmn gh u ng r r h ruvhruhur hh rg j bj8g jv b fjif vjivjv ji vji viv iviv nifv ij nsutpwyep wew egobfwe wboe gw8toe t7obw378et rw78te ot8w.',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        height: 1.5,
+                        fontSize: 14,
+                      ),
+                    ))
+              ],
+            ),
+          )
+        ],
+      ),
     ));
   }
 }

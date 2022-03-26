@@ -18,10 +18,10 @@ class StarWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
-            Icon(
-              Icons.star_rate_rounded,
+            ImageIcon(
+              AssetImage('assets/image/star.png'),
               color: Color(0xffF3AC4A),
-              size: 18,
+              size: 15,
             ),
             SmallTextWidget(data: '5.0'),
           ],
