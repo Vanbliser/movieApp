@@ -11,7 +11,7 @@ class BigTextWidget extends StatelessWidget {
     return Text(
       data,
       style: const TextStyle(
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: FontWeight.w600,
         color: Color(0xffffffff),
       ),

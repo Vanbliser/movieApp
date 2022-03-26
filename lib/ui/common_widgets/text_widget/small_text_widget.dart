@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 class SmallTextWidget extends StatefulWidget {
   final String data;
   final Color color;
-  const SmallTextWidget({Key? key, required this.data, required this.color})
+  const SmallTextWidget(
+      {Key? key, required this.data, this.color = const Color(0xffffffff)})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class _SmallTextWidgetState extends State<SmallTextWidget> {
       style: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w600,
-        color:widget.color,
+        color: widget.color,
       ),
     );
   }
