@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:movie_test/ui/common_widgets/movie_card_poster_widget/movie_card_info_widget/movie_card_info_widget.dart';
+import 'package:movie_test/ui/common_widgets/movie_card_poster_widget/movie_card_info_widget/star_and_rating_widget/start_and_rating_widget.dart';
+import 'package:movie_test/ui/common_widgets/text_widget/big_text_widget.dart';
+import 'package:movie_test/ui/common_widgets/text_widget/small_text_widget.dart';
+import 'package:movie_test/ui/screens/detail_screen/add_to_list_widget.dart';
+import 'package:movie_test/ui/screens/detail_screen/detail_screen_banner.dart';
 
 class DetailScreeen extends StatelessWidget {
   const DetailScreeen({Key? key}) : super(key: key);
@@ -7,49 +13,30 @@ class DetailScreeen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
-      children: const [
-        DetailScreenBanner(),
+      children: [
+        const DetailScreenBanner(),
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [StarAndRatingWidget(), AddToListWidget()],
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 8.0),
+                child: BigTextWidget(data: 'Angel has fallen'),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 8.0),
+                child: SmallTextWidget(
+                    data:
+                        'nuenoiuwehnphwhmpihpfiwetmeitpseiurtimpuvwrisve,rmveri hvui hrpmvuhepruh puvehrnpv uhergijv ndfmn gh u ng r r h ruvhruhur hh rg j bj8g jv b fjif vjivjv ji vji viv iviv nifv ij nsutpwyep wew egobfwe wboe gw8toe t7obw378et rw78te ot8w.'),
+              )
+            ],
+          ),
+        )
       ],
     ));
-  }
-}
-
-class DetailScreenBanner extends StatefulWidget {
-  const DetailScreenBanner({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<DetailScreenBanner> createState() => _DetailScreenBannerState();
-}
-
-class _DetailScreenBannerState extends State<DetailScreenBanner> {
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height / 2,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              colors: [Color(0x00C4C4C4), Color(0xaaC4C4C4)],
-            ),
-          ),
-        ),
-        Positioned(
-          left: 10,
-          top: 50,
-          child: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back, size: 30),
-          ),
-        ),
-      ],
-    );
   }
 }
