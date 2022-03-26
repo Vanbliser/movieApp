@@ -32,6 +32,7 @@ class _MyListWidgetState extends State<MyListWidget> {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
                       crossAxisCount: 2,
+                      mainAxisSpacing: 5,
                       mainAxisExtent: 300),
                   itemCount: 6,
                   itemBuilder: (_, index) => InkWell(

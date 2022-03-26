@@ -49,7 +49,7 @@ class _TrendingNowListViewState extends State<TrendingNowListView>
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 0),
       width: MediaQuery.of(context).size.width,
-      height: 340,
+      height: 320,
       child: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 7.5),
         scrollDirection: Axis.horizontal,
