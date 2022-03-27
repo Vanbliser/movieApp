@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:movie_test/ui/common_widgets/movie_card_poster_widget/movie_card_info_widget/movie_card_info_widget.dart';
 
-class MovieCardPosterWidget extends StatefulWidget {
-  const MovieCardPosterWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MovieCardPosterWidget> createState() => _MovieCardPosterWidgetState();
-}
-
-class _MovieCardPosterWidgetState extends State<MovieCardPosterWidget> {
-  late final int count;
-  @override
-  void initState() {
-    count = 5;
-    super.initState();
-  }
+class MovieCardPosterWidget extends StatelessWidget {
+  final Map<String, dynamic> data;
+  const MovieCardPosterWidget({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width / 2.2,
-      //height: 200,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
       child: Column(
         children: [
@@ -32,10 +20,16 @@ class _MovieCardPosterWidgetState extends State<MovieCardPosterWidget> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: const Color(0x44C4C4C4),
+                image: DecorationImage(
+                    image: NetworkImage(
+                      'https://image.tmdb.org/t/p/w500' +
+                          data['posterPath'],
+                    ),
+                    fit: BoxFit.cover),
               ),
             ),
           ),
-          const MovieCardInfoWidget(),
+          MovieCardInfoWidget(data: data),
         ],
       ),
     );

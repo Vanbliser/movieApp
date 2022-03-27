@@ -1,27 +1,43 @@
-import 'package:tmdb_api/tmdb_api.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:movie_test/models/movies.dart';
 
 mixin MoviePageMixin {
-  List trendingNow = [];
-  final String apiKey = 'af63d81073ce3bfd8e3775ea82b0fb86';
-  final String readAccessToken =
-      'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZjYzZDgxMDczY2UzYmZkOGUzNzc1ZWE4MmIwZmI4NiIsInN1YiI6IjYyMzliNDUwZTI3MjYwMDA3MWRjMzIyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xIJjUSBuKCUHq9qT5h5stYIarHlEJiD206lzogeoJcw';
+  final Uri trendingNowUri = Uri.parse(
+      'https://api.themoviedb.org/3/trending/all/day?api_key=af63d81073ce3bfd8e3775ea82b0fb86');
 
-  loadMovies() async {
-    //TMDB instance
-    final tmdbWithCustomLogs = TMDB(
-      ApiKeys(apiKey, readAccessToken),
-      logConfig: const ConfigLogger(
-        showLogs: true, //must be true than only all other logs will be shown
-        showErrorLogs: true,
-      ),
-    );
-    Map result = await tmdbWithCustomLogs.v3.trending
-        .getTrending(mediaType: MediaType.all, timeWindow: TimeWindow.day);
-    //ApiKeys instance with your keys,
-    print('$result\n\n');
-    Map result1 = await tmdbWithCustomLogs.v3.movies.getUpcoming();
-    // .getTrending(mediaType: MediaType.all, timeWindow: TimeWindow.day);
-    //ApiKeys instance with your keys,
-    print(result1);
+  final Uri upComingUri = Uri.parse(
+      'https://api.themoviedb.org/3/movie/upcoming?api_key=af63d81073ce3bfd8e3775ea82b0fb86&language=en-US&page=1');
+
+  Future<UpComingMovies> loadUpComing() async {
+    http.Response response = await http.get(upComingUri);
+    if (response.statusCode == 200) {
+      //print('\n\n\nUPCOMING MOVIES\n ${response.body}');
+      return UpComingMovies.fromMap(json.decode(response.body));
+    } else {
+      return UpComingMovies.fromMap(
+        {
+          'results': [
+            {'original_title': "Network Error!!!"}
+          ]
+        },
+      );
+    }
+  }
+
+  Future<TrendingMovies> loadTrending() async {
+    http.Response response = await http.get(trendingNowUri);
+    if (response.statusCode == 200) {
+      //print('\n\n\nTRENDING MOVIES\n ${response.body}');
+      return TrendingMovies.fromMap(json.decode(response.body));
+    } else {
+      return TrendingMovies.fromMap(
+        {
+          'results': [
+            {'original_title': "Network Error!!!"}
+          ]
+        },
+      );
+    }
   }
 }

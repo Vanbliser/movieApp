@@ -3,17 +3,18 @@ import 'package:movie_test/ui/common_widgets/movie_card_poster_widget/movie_card
 import 'package:movie_test/ui/common_widgets/text_widget/small_text_widget.dart';
 
 class MovieCardInfoWidget extends StatelessWidget {
-  const MovieCardInfoWidget({Key? key}) : super(key: key);
+  final Map<String, dynamic> data;
+  const MovieCardInfoWidget({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        SizedBox(height: 12),
-        StarAndRatingWidget(),
-        SizedBox(height: 7),
-        SmallTextWidget(data: 'Angel has fallen'),
-        SizedBox(height: 12),
+      children: [
+        const SizedBox(height: 12),
+        StarAndRatingWidget(data: data),
+        const SizedBox(height: 12),
+        SmallTextWidget(data: data['title']),
+        const SizedBox(height: 12),
       ],
     );
   }

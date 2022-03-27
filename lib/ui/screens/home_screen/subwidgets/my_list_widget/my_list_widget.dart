@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_test/routes/route_names.dart';
-import 'package:movie_test/ui/common_widgets/movie_card_poster_widget/movie_card_poster_widget.dart';
+//import 'package:movie_test/ui/common_widgets/movie_card_poster_widget/movie_card_poster_widget.dart';
 import 'package:movie_test/ui/common_widgets/text_widget/big_text_widget.dart';
 
 class MyListWidget extends StatefulWidget {
@@ -39,7 +39,7 @@ class _MyListWidgetState extends State<MyListWidget> {
                     onTap: () {
                       Navigator.pushNamed(context, RouteNames.detailScreen);
                     },
-                    child: const MovieCardPosterWidget(),
+                    //child: MovieCardPosterWidget(),
                   ),
                 ),
               )),

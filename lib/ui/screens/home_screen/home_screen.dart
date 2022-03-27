@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_test/ui/screens/home_screen/subwidget/movie_widget/movie_widget.dart';
-import 'package:movie_test/ui/screens/home_screen/subwidget/my_list_widget/my_list_widget.dart';
-import 'package:movie_test/ui/screens/home_screen/subwidget/top_navigation_widget/top_navigation_widget.dart';
+import 'package:movie_test/ui/screens/home_screen/subwidgets/movie_widget/movie_widget.dart';
+import 'package:movie_test/ui/screens/home_screen/subwidgets/my_list_widget/my_list_widget.dart';
+import 'package:movie_test/ui/screens/home_screen/subwidgets/top_navigation_widget/top_navigation_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

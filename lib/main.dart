@@ -4,7 +4,7 @@ import 'package:movie_test/routes/routes.dart';
 import 'package:movie_test/ui/screens/home_screen/home_screen.dart';
 import 'package:movie_test/ui/screens/unknown_screen/unknown_screen.dart';
 
-void main() async {
+void main() {
   runApp(const MovieApp());
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
@@ -23,7 +23,12 @@ class MovieApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          canvasColor: const Color(0xff0D0F14), brightness: Brightness.dark),
+        androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
+        //primarySwatch: Colors.transparent,
+        primaryColor: const Color(0x44C4C4C4),
+        canvasColor: const Color(0xff0D0F14),
+        brightness: Brightness.dark,
+      ),
       onGenerateRoute: (settings) => MaterialPageRoute(
         builder: routes[settings.name] ?? (_) => const UnknownPage(),
       ),
