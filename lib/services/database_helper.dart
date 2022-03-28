@@ -61,7 +61,7 @@ class DatabaseHelper {
     for (var i = 0; i < count; i++) {
       movieList.add(Movie.fromMap(movieMapList[i]));
     }
-    return movieList;
+    return movieList.reversed.toList();
   }
 
   Future<int> insertLikedMovie(Movie movie) async {
