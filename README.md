@@ -27,3 +27,20 @@ that will display the
 between app sessions (i.e closing and reopening the app)
 5. Users should be able to search
 6. The app must be written in Flutter, the latest available version
+
+
+
+## DESCRIPTION OF THE FEATURES OF THE CREATED APP
+
+Based on the UI provided which can be gotten here https://www.figma.com/file/Iryrl5FrMaO9x3LtyUpXKG/movs_app?node-id=44%3A95, I was able to implement it to the teeth. Adding both saving and deleting feature to favourites.
+
+# SAVING
+
+Saving is achieved by first clicking on either the coming soon banner or the trending poster. This action will take you to a full screen description of the movie. clicking on the far right send icon will initiate an alert box where you will confirm if you want to save the movie to your favourite list. Saving a movie item that has already been saved will initiate an alert box that the movie has already been saved.
+
+# DELETING
+
+Clicking on the text button called 'My list', you will be routed to a screen showing all the movies you have saved to favourites. Holding down a movie poster will initiate an alert box where you will confirm if you want to delete the movie item from your favourite.
+
+
+

@@ -16,8 +16,7 @@ class UpComingPageView extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 9 / 4.5,
         child: PageView.builder(
-          itemCount:
-              (snapshotData.list.isNotEmpty) ? snapshotData.list.length : 2,
+          itemCount:snapshotData.list.length,
           itemBuilder: (_, index) => InkWell(
             onTap: () {
               Navigator.push(

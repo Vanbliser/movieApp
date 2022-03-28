@@ -25,7 +25,7 @@ class DetailScreeen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     StarAndRatingWidget(data: data),
-                    AddToListWidget(data: data,movie:movie)
+                    AddToListWidget(data: data, movie:movie)
                   ],
                 ),
                 Padding(
