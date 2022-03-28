@@ -12,14 +12,15 @@ mixin DatabaseMixin {
         TextButton(
           onPressed: () {
             funct(a);
+            Navigator.pop(context);
           },
-          child: const Text('Yes',style: TextStyle(color: Colors.white)),
+          child: const Text('Yes', style: TextStyle(color: Colors.white)),
         ),
         TextButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const Text('No',style: TextStyle(color: Colors.white)),
+          child: const Text('No', style: TextStyle(color: Colors.white)),
         ),
       ],
     );
