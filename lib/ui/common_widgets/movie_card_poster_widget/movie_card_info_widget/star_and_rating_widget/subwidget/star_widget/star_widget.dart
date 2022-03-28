@@ -24,7 +24,7 @@ class StarWidget extends StatelessWidget {
               color: Color(0xffF3AC4A),
               size: 15,
             ),
-            SmallTextWidget(data: data['avgRating'].toString()),
+            SmallTextWidget(data: data['avgRating']),
           ],
         ),
       ),

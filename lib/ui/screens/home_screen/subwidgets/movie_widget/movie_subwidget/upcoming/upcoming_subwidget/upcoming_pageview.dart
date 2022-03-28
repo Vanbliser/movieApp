@@ -23,8 +23,10 @@ class UpComingPageView extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      DetailScreeen(data: snapshotData.list[index]),
+                  builder: (BuildContext context) => DetailScreeen(
+                    data: snapshotData.list[index],
+                    movie: snapshotData.movielist[index],
+                  ),
                 ),
               );
               // Navigator.pushNamed(context, RouteNames.detailScreen,

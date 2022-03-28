@@ -28,7 +28,8 @@ class DetailScreenBanner extends StatelessWidget {
           top: 50,
           child: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              //Navigator.of(context).pop(true);
+              Navigator.pop(context, true);
             },
             icon: const Icon(Icons.arrow_back, size: 30),
           ),

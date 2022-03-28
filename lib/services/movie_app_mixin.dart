@@ -13,9 +13,9 @@ mixin MoviePageMixin {
     http.Response response = await http.get(upComingUri);
     if (response.statusCode == 200) {
       //print('\n\n\nUPCOMING MOVIES\n ${response.body}');
-      return UpComingMovies.fromMap(json.decode(response.body));
+      return UpComingMovies.fromJSON(json.decode(response.body));
     } else {
-      return UpComingMovies.fromMap(
+      return UpComingMovies.fromJSON(
         {
           'results': [
             {'original_title': "Network Error!!!"}
@@ -29,9 +29,9 @@ mixin MoviePageMixin {
     http.Response response = await http.get(trendingNowUri);
     if (response.statusCode == 200) {
       //print('\n\n\nTRENDING MOVIES\n ${response.body}');
-      return TrendingMovies.fromMap(json.decode(response.body));
+      return TrendingMovies.fromJSON(json.decode(response.body));
     } else {
-      return TrendingMovies.fromMap(
+      return TrendingMovies.fromJSON(
         {
           'results': [
             {'original_title': "Network Error!!!"}

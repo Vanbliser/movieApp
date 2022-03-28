@@ -1,29 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:movie_test/models/movies.dart';
+import 'package:movie_test/services/database_mixin.dart';
 
-class AddToListWidget extends StatelessWidget {
-  const AddToListWidget({Key? key}) : super(key: key);
+class AddToListWidget extends StatefulWidget {
+  final Map<String, dynamic> data;
+  final Movie movie;
+  const AddToListWidget({Key? key, required this.data, required this.movie})
+      : super(key: key);
+
+  @override
+  State<AddToListWidget> createState() => _AddToListWidgetState();
+}
+
+class _AddToListWidgetState extends State<AddToListWidget> with DatabaseMixin {
+  save(Movie movie) async {
+    await databaseHelper.insertLikedMovie(movie);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        IconButton(
-          onPressed: (() {}),
-          iconSize: 18,
-          icon: Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
-              borderRadius: BorderRadius.circular(6),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(2.0),
-              child: Icon(Icons.add, size: 14),
-            ),
+        Container(
+          width: 22,
+          height: 22,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.white),
+            borderRadius: BorderRadius.circular(6),
           ),
+          child: const Center(child: Icon(Icons.add, size: 14)),
         ),
         const SizedBox(width: 5),
         IconButton(
-          onPressed: (() => {}),
+          onPressed: (() => {
+                showAlertDialog(
+                    context, 'Save movie from list?', save, widget.movie)
+              }),
           iconSize: 20,
           icon: Container(
             margin: const EdgeInsets.only(bottom: 4),

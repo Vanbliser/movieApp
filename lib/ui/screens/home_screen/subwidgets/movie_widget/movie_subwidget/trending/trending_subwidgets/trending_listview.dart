@@ -23,14 +23,16 @@ class TrendingListView extends StatelessWidget {
         itemBuilder: (_, index) => InkWell(
           onTap: () {
             Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) =>
-                      DetailScreeen(data: snapshotData.list[index]),
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => DetailScreeen(
+                  data: snapshotData.list[index],
+                  movie: snapshotData.movielist[index],
                 ),
-              );
-              // Navigator.pushNamed(context, RouteNames.detailScreen,
-              //     arguments: snapshotData.list[index]);
+              ),
+            );
+            // Navigator.pushNamed(context, RouteNames.detailScreen,
+            //     arguments: snapshotData.list[index]);
           },
           child: MovieCardPosterWidget(data: snapshotData.list[index]),
         ),

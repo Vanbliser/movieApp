@@ -23,8 +23,7 @@ class MovieApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
-        //primarySwatch: Colors.transparent,
+        //primarySwatch: Colors.white;
         primaryColor: const Color(0x44C4C4C4),
         canvasColor: const Color(0xff0D0F14),
         brightness: Brightness.dark,
