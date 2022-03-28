@@ -32,10 +32,15 @@ class _AddToListWidgetState extends State<AddToListWidget> with DatabaseMixin {
         ),
         const SizedBox(width: 5),
         IconButton(
-          onPressed: (() => {
-                showAlertDialog(
-                    context, 'Save movie to list?', save, widget.movie)
-              }),
+          onPressed: (() async {
+            if (await databaseHelper.checkduplicate(widget.movie.toMap()) ==
+                false) {
+              showAlertDialog(
+                  context, 'Save movie to list?', save, widget.movie);
+            } else {
+              errorAlertDialog(context, 'Already saved');
+            }
+          }),
           iconSize: 20,
           icon: Container(
             margin: const EdgeInsets.only(bottom: 4),

@@ -65,7 +65,7 @@ Movie mapToMovie(Map<String, dynamic> map) {
 
 List<Map<String, dynamic>> cleanUpListMap(List unclean) {
   List<Map<String, dynamic>> clean = [];
-  for (var i = 0; i < unclean.length - 1; i++) {
+  for (var i = 0; i < unclean.length; i++) {
     Map<String, dynamic> initMap = {
       'title': getTitle(unclean[i]),
       'description': unclean[i]['overview'],

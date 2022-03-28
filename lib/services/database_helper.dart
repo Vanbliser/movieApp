@@ -84,6 +84,16 @@ class DatabaseHelper {
     int? result = Sqflite.firstIntValue(list);
     return result;
   }
+
+  Future<bool> checkduplicate(Map<String, dynamic> movie) async {
+    List<Map<String, dynamic>> list = await getLikedMovieMapList();
+    for (var item in list) {
+      if (item['posterPath'] == movie['posterPath']) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 int helperCheck = 0;

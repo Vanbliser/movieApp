@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_test/models/movies.dart';
-import 'package:movie_test/routes/route_names.dart';
 import 'package:movie_test/services/database_mixin.dart';
 import 'package:movie_test/ui/common_widgets/movie_card_poster_widget/movie_card_poster_widget.dart';
 import 'package:movie_test/ui/common_widgets/text_widget/big_text_widget.dart';
+import 'package:movie_test/ui/screens/detail_screen/detail_screen.dart';
 
 class MyListWidget extends StatefulWidget {
   const MyListWidget({Key? key}) : super(key: key);
@@ -41,48 +41,48 @@ class _MyListWidgetState extends State<MyListWidget> with DatabaseMixin {
       children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 25),
-          margin: const EdgeInsets.only(bottom: 15, top: 15),
+          margin: const EdgeInsets.only(bottom: 15, top: 0),
           child: const Align(
             alignment: Alignment.centerLeft,
             child: BigTextWidget(data: 'Likes'),
           ),
         ),
-        SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 30),
-            child: LayoutBuilder(
-              builder: ((context, constraints) => Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    width: constraints.maxWidth,
-                    height: 700,
-                    child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisSpacing: 10,
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 0,
-                              mainAxisExtent: 315),
-                      itemCount: count,
-                      itemBuilder: (_, index) => InkWell(
-                        onLongPress: () {
-                          showAlertDialog(context, 'Delete from list?', delete,
-                              movieList[index]);
-                        },
-                        onTap: () async {
-                          var state = await Navigator.pushNamed(
-                              context, RouteNames.detailScreen);
-                          if (state == true) {
-                            updateMovieList();
-                          }
-                        },
-                        child: MovieCardPosterWidget(
-                            data: movieList[index].toMap()),
-                      ),
-                    ),
-                  )),
-            ),
-          ),
-        )
+        LayoutBuilder(
+          builder: ((context, constraints) => Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                width: constraints.maxWidth,
+                height: 600,
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 10,
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 0,
+                      mainAxisExtent: 320),
+                  itemCount: count,
+                  itemBuilder: (_, index) => InkWell(
+                    onLongPress: () {
+                      showAlertDialog(context, 'Delete from list?', delete,
+                          movieList[index]);
+                    },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return DetailScreeen(
+                                data: (movieList[index]).toMap(),
+                                movie: movieList[index]);
+                          },
+                        ),
+                      );
+                    },
+                    child:
+                        MovieCardPosterWidget(data: movieList[index].toMap()),
+                  ),
+                ),
+              )),
+        ),
+        const SizedBox(height: 60)
       ],
     );
   }
