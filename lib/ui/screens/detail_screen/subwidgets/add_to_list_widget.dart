@@ -34,7 +34,7 @@ class _AddToListWidgetState extends State<AddToListWidget> with DatabaseMixin {
         IconButton(
           onPressed: (() => {
                 showAlertDialog(
-                    context, 'Save movie from list?', save, widget.movie)
+                    context, 'Save movie to list?', save, widget.movie)
               }),
           iconSize: 20,
           icon: Container(
