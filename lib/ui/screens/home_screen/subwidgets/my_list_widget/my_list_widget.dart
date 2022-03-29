@@ -56,8 +56,7 @@ class _MyListWidgetState extends State<MyListWidget> with DatabaseMixin {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
                       crossAxisCount: 2,
-                      mainAxisSpacing: 0,
-                      mainAxisExtent: 320),
+                      mainAxisExtent: 360),
                   itemCount: count,
                   itemBuilder: (_, index) => InkWell(
                     onLongPress: () {

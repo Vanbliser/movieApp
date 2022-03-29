@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xff0D0F14),
         elevation: 0,
-        toolbarHeight: 75,
+        toolbarHeight: 65,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TopNavigationWidget(

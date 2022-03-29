@@ -7,25 +7,25 @@ class MovieCardPosterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width / 2.2,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+    return SizedBox(
+      width: 165,
       child: Column(
         children: [
           LayoutBuilder(
             builder: (_, constraint) => Container(
+              clipBehavior: Clip.hardEdge,
               margin: const EdgeInsets.symmetric(horizontal: 7.5),
               width: constraint.maxWidth,
-              height: 220,
+              height: (constraint.maxWidth * 3) / 2,
+              child: FadeInImage.assetNetwork(
+                fadeInDuration: const Duration(milliseconds: 300),
+                fit: BoxFit.fill,
+                placeholder: 'assets/image/imageY.jpg',
+                image: 'https://image.tmdb.org/t/p/w500' + data['posterPath'],
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: const Color(0x44C4C4C4),
-                image: DecorationImage(
-                    image: NetworkImage(
-                      'https://image.tmdb.org/t/p/w500' +
-                          data['posterPath'],
-                    ),
-                    fit: BoxFit.cover),
               ),
             ),
           ),

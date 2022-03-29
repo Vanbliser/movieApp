@@ -6,7 +6,7 @@ import 'package:movie_test/ui/screens/detail_screen/detail_screen.dart';
 class UpComingPageView extends StatelessWidget {
   final UpComingMovies snapshotData;
   final int? count;
-  const UpComingPageView({Key? key, this.count = 3, required this.snapshotData})
+  const UpComingPageView({Key? key, this.count = 5, required this.snapshotData})
       : super(key: key);
 
   @override
@@ -14,9 +14,9 @@ class UpComingPageView extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: AspectRatio(
-        aspectRatio: 9 / 4.5,
+        aspectRatio: 9 / 5,
         child: PageView.builder(
-          itemCount:snapshotData.list.length,
+          itemCount: snapshotData.length,
           itemBuilder: (_, index) => InkWell(
             onTap: () {
               Navigator.push(
@@ -34,15 +34,16 @@ class UpComingPageView extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 15),
               clipBehavior: Clip.hardEdge,
+              child: FadeInImage.assetNetwork(
+                fadeInDuration: const Duration(milliseconds: 300),
+                fit: BoxFit.fill,
+                placeholder: 'assets/image/imageX.jpg',
+                image: 'https://image.tmdb.org/t/p/w500' +
+                    snapshotData.list[index]['banner'],
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: const Color(0x44C4C4C4),
-                image: DecorationImage(
-                    image: NetworkImage(
-                      'https://image.tmdb.org/t/p/w500' +
-                          snapshotData.list[index]['banner'],
-                    ),
-                    fit: BoxFit.fill),
               ),
             ),
           ),

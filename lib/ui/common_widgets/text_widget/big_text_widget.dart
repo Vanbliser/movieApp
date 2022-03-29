@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class BigTextWidget extends StatelessWidget {
   final String data;
   const BigTextWidget({
@@ -10,10 +10,10 @@ class BigTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       data,
-      style: const TextStyle(
+      style: GoogleFonts.dmSans(
         fontSize: 20,
         fontWeight: FontWeight.w600,
-        color: Color(0xffffffff),
+        color: const Color(0xffffffff),
       ),
     );
   }

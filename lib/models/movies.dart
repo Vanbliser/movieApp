@@ -30,9 +30,14 @@ class Movie {
 class TrendingMovies extends Movie {
   List<Map<String, dynamic>> trendingMovieslist = [];
   List<Movie> trendingMoviesMovie = [];
+  String? error;
   TrendingMovies.fromJSON(Map<String, dynamic> result)
       : trendingMovieslist = cleanUpListMap(result['results']),
         trendingMoviesMovie = cleanUpListMovie(result['results']);
+
+  void errorMsg(Object message) {
+    error = message.toString();
+  }
 
   List<Map<String, dynamic>> get list {
     return trendingMovieslist;
@@ -41,14 +46,23 @@ class TrendingMovies extends Movie {
   List<Movie> get movielist {
     return trendingMoviesMovie;
   }
+
+  int get length {
+    return trendingMoviesMovie.length;
+  }
 }
 
 class UpComingMovies extends Movie {
   List<Map<String, dynamic>> upcomingMovieslist = [];
   List<Movie> upcomingMoviesMovie;
+  String? error;
   UpComingMovies.fromJSON(Map<String, dynamic> result)
       : upcomingMovieslist = cleanUpListMap(result['results']),
         upcomingMoviesMovie = cleanUpListMovie(result['results']);
+
+  void errorMsg(Object message) {
+    error = message.toString();
+  }
 
   List<Map<String, dynamic>> get list {
     return upcomingMovieslist;
@@ -56,6 +70,10 @@ class UpComingMovies extends Movie {
 
   List<Movie> get movielist {
     return upcomingMoviesMovie;
+  }
+
+  int get length {
+    return upcomingMoviesMovie.length;
   }
 }
 

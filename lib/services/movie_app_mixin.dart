@@ -10,11 +10,21 @@ mixin MoviePageMixin {
       'https://api.themoviedb.org/3/movie/upcoming?api_key=af63d81073ce3bfd8e3775ea82b0fb86&language=en-US&page=1');
 
   Future<UpComingMovies> loadUpComing() async {
-    http.Response response = await http.get(upComingUri);
-    if (response.statusCode == 200) {
-      //print('\n\n\nUPCOMING MOVIES\n ${response.body}');
-      return UpComingMovies.fromJSON(json.decode(response.body));
-    } else {
+    try {
+      http.Response response = await http.get(upComingUri);
+      if (response.statusCode == 200) {
+        //print('\n\n\nUPCOMING MOVIES\n ${response.body}');
+        return UpComingMovies.fromJSON(json.decode(response.body));
+      } else {
+        return UpComingMovies.fromJSON(
+          {
+            'results': [
+              {'original_title': "Network Error!!!"}
+            ]
+          },
+        );
+      }
+    } catch (e) {
       return UpComingMovies.fromJSON(
         {
           'results': [
@@ -26,11 +36,21 @@ mixin MoviePageMixin {
   }
 
   Future<TrendingMovies> loadTrending() async {
-    http.Response response = await http.get(trendingNowUri);
-    if (response.statusCode == 200) {
-      //print('\n\n\nTRENDING MOVIES\n ${response.body}');
-      return TrendingMovies.fromJSON(json.decode(response.body));
-    } else {
+    try {
+      http.Response response = await http.get(trendingNowUri);
+      if (response.statusCode == 200) {
+        //print('\n\n\nTRENDING MOVIES\n ${response.body}');
+        return TrendingMovies.fromJSON(json.decode(response.body));
+      } else {
+        return TrendingMovies.fromJSON(
+          {
+            'results': [
+              {'original_title': "Network Error!!!"}
+            ]
+          },
+        );
+      }
+    } catch (e) {
       return TrendingMovies.fromJSON(
         {
           'results': [

@@ -11,15 +11,13 @@ class TrendingListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 0),
+    return SizedBox(
       width: MediaQuery.of(context).size.width,
-      height: 320,
+      height: 360,
       child: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 7.5),
         scrollDirection: Axis.horizontal,
-        itemCount:
-            (snapshotData.list.isNotEmpty) ? snapshotData.list.length : 2,
+        itemCount: snapshotData.length,
         itemBuilder: (_, index) => InkWell(
           onTap: () {
             Navigator.push(

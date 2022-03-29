@@ -17,7 +17,7 @@ class ComingSoonTitle extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 15),
-          margin: const EdgeInsets.only(bottom: 20, top: 8),
+          margin: const EdgeInsets.only(bottom: 10),
           child: const Align(
             alignment: Alignment.centerLeft,
             child: BigTextWidget(data: 'Coming Soon'),

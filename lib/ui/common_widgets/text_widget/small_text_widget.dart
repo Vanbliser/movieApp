@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SmallTextWidget extends StatelessWidget {
   final String data;
@@ -12,7 +13,7 @@ class SmallTextWidget extends StatelessWidget {
     return Text(
       data,
       textAlign: TextAlign.center,
-      style: TextStyle(
+      style: GoogleFonts.dmSans(
         fontSize: 14,
         fontWeight: FontWeight.w600,
         color: color,

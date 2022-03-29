@@ -15,8 +15,8 @@ class TrendingNowTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
-        bottom: 20,
-        top: 40,
+        bottom: 10,
+        top: 20,
         left: 15,
         right: 15,
       ),
@@ -34,13 +34,13 @@ class TrendingNowListView extends StatefulWidget {
   State<TrendingNowListView> createState() => _TrendingNowListViewState();
 }
 
-class _TrendingNowListViewState extends State<TrendingNowListView> with MoviePageMixin {
-
+class _TrendingNowListViewState extends State<TrendingNowListView>
+    with MoviePageMixin {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<TrendingMovies>(
       future: loadTrending(),
-      builder: (context,snapshot){
+      builder: (context, snapshot) {
         if (snapshot.hasData) {
           return TrendingListView(snapshotData: snapshot.data!);
         } else {
@@ -50,4 +50,3 @@ class _TrendingNowListViewState extends State<TrendingNowListView> with MoviePag
     );
   }
 }
-
