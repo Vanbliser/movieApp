@@ -32,7 +32,9 @@ between app sessions (i.e closing and reopening the app)
 
 ## DESCRIPTION OF THE FEATURES OF THE CREATED APP
 
-Based on the UI provided which can be gotten here https://www.figma.com/file/Iryrl5FrMaO9x3LtyUpXKG/movs_app?node-id=44%3A95, I was able to implement it to the teeth. Adding both saving and deleting feature to favourites.
+Based on the UI provided which can be gotten here https://www.figma.com/file/Iryrl5FrMaO9x3LtyUpXKG/movs_app?node-id=44%3A95,
+![Movie App Figma Design](https://github.com/Vanbliser/movieApp/blob/main/monie_app%20-%20Figma%20Design.png)
+I was able to implement it to the teeth. Adding both saving and deleting feature to favourites.
 
 # SAVING
 
